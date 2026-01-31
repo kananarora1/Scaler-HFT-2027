@@ -1,0 +1,4 @@
+-fsanitize=undefined
+your program is instrumented with extra checks. If your code executes something that’s undefined by the C++ standard, UBSan will print a runtime error message and (depending on settings) abort the program.
+
+

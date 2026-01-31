@@ -1,0 +1,25 @@
+services:
+  cpp64:
+    image: ubuntu:22.04
+    container_name: cpp64
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: >
+      bash -c "apt-get update &&
+               apt-get install -y g++ &&
+               g++ test.cpp -o test &&
+               ./test"
+
+  cpp32:
+    image: i386/ubuntu:18.04   # <-- 32-bit works here
+    container_name: cpp32
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: >
+      bash -c "apt-get update &&
+               apt-get install -y g++ &&
+               g++ test.cpp -o test &&
+               ./test"
+
